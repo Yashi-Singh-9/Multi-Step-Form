@@ -403,6 +403,10 @@ header{
         text-align: center;
         padding: 50px;
 
+        @media (max-width: 375px) {
+            padding: 0;
+        }
+
         img{
             width: 124.98px;
             height: 124.99px;
@@ -413,6 +417,10 @@ header{
             font-size: 24px;
             font-weight: 600;
             margin-bottom: 20px;
+
+            @media (max-width: 375px) {
+                word-wrap: break-word;
+            }
         }
 
         p{
