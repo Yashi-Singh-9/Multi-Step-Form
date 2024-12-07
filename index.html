@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Step Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/frontendicon.svg" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <h1>Join our Community of Developers</h1>
+        <p>To join our community and participate in frontend challenges. Please fill out the following form.</p>
+    </header>
+    <div class="container">
+        <form id="multiStepForm" novalidate>
+            <!-- Progress Bar -->
+            <div class="progress">
+                <div class="step">
+                    <div class="circle active">1</div>
+                </div>
+                <div class="step">
+                    <div class="circle">2</div>
+                </div>
+                <div class="step">
+                    <div class="circle">3</div>
+                </div>
+                <div class="step">
+                    <div class="circle">4</div>
+                </div>
+            </div>
+
+            <!-- Step 1 -->
+            <div class="form-step active">
+                <h2>Personal Information</h2>
+                <p>Please provide your personal details so we can get to know you better.</p>
+                <div class="input-pair">
+                    <div class="input-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="name@email.com" required>
+                    </div>
+                </div>
+                <div class="input-pair" style="border-bottom: 1px solid #E5E7EB; padding-bottom: 40px; margin-bottom: -10px;">
+                    <div class="input-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+91 1234567890" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="portfolio">Portfolio/GitHub Link</label>
+                        <input type="url" id="portfolio" name="portfolio" placeholder="https://github.com/yourusername" required>
+                    </div>
+                </div>
+                <div class="btn" style="float: right; border-top: none;">
+                    <button type="button" class="next-btn">Next Step</button>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="form-step">
+                <h2>Skills</h2>
+                <p>Please tell us about your skill level in frontend development.</p>
+                <div class="skill-pair">
+                    <div class="skill-group">
+                        <a href="#" data-skill="Beginner">
+                            <i class="fa-solid fa-seedling"></i> Beginner
+                        </a>
+                    </div>
+                    <div class="skill-group">
+                        <a href="#" data-skill="Intermediate">
+                            <i class="fa-regular fa-compass"></i> Intermediate
+                        </a>
+                    </div>
+                </div>
+                <div class="skill-pair">
+                    <div class="skill-group">
+                        <a href="#" data-skill="Advanced">
+                            <i class="fa-solid fa-rocket"></i> Advanced
+                        </a>
+                    </div>
+                    <div class="skill-group">
+                        <a href="#" data-skill="Expert">
+                            <i class="fa-solid fa-trophy"></i> Expert
+                        </a>
+                    </div>
+                </div>
+                <div class="btn">
+                    <button type="button" class="prev-btn">Go Back</button>
+                    <button type="button" class="next-btn">Next Step</button>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="form-step">
+                <h2>Challenge Preference</h2>
+                <p>Please tell us which frontend challenges you would like to participate in.</p>
+                <div class="challenge-pair">
+                    <div class="challenge-group">
+                        <input type="checkbox" name="challenge1" id="html-css-js">
+                        <label for="html-css-js">HTML/CSS/JS</label>
+                    </div>
+                    <div class="challenge-group">
+                        <input type="checkbox" name="challenge2" id="reactjs">
+                        <label for="reactjs">ReactJs</label>
+                    </div>
+                </div>
+                <div class="challenge-pair">
+                    <div class="challenge-group">
+                        <input type="checkbox" name="challenge3" id="angularjs">
+                        <label for="angularjs">AngularJs</label>
+                    </div>
+                    <div class="challenge-group">
+                        <input type="checkbox" name="challenge4" id="vuejs">
+                        <label for="vuejs">Vue.js</label>
+                    </div>
+                </div>
+                <div class="btn">
+                    <button type="button" class="prev-btn">Go Back</button>
+                    <button type="button" class="next-btn">Next Step</button>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="form-step">
+                <h2>Review and Confirm</h2>
+                <p>Please review your information to make sure everything is accurate.</p>
+                <div id="summary">
+                    <!-- Summary details will be appended here dynamically -->
+                </div>
+                <div class="btn">
+                    <button type="button" class="prev-btn">Go Back</button>
+                    <button type="submit" class="submit-btn">Submit</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Confirmation Screen -->
+        <div id="confirmation" class="confirm" style="display: none;">
+            <img src="images/Congratulations.png" alt="Congratulations">
+            <h2>Congratulations! 🎉</h2>
+            <p>Your profile has been created and you are now ready to start participating in challenges that match your interests and coding experience level.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
