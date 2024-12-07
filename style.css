@@ -1,0 +1,380 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=Poppins:wght@400;500;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins";
+  font-weight: 400;
+  background-color: #F3F3E3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+@media (max-width: 780px) {
+  body {
+    height: auto;
+  }
+}
+
+header {
+  text-align: center;
+}
+@media (max-width: 780px) {
+  header {
+    margin-top: 50px;
+  }
+}
+header h1 {
+  color: #111827;
+  font-family: "Merriweather";
+  font-weight: 900;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+header p {
+  color: #111827;
+  font-size: 18px;
+  max-width: 560px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.container {
+  background-color: #FFFFFF;
+  padding: 2rem;
+  max-width: 640px;
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+}
+@media (max-width: 780px) {
+  .container {
+    width: 80%;
+  }
+}
+.container form .progress {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+  margin-top: 1rem;
+}
+@media (max-width: 480px) {
+  .container form .progress {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+.container form .progress::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: #E5E7EB;
+  z-index: 0;
+  transform: translateY(-50%);
+  border-radius: 50px;
+}
+.container form .progress::after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 0;
+  height: 6px;
+  background: #FC6C4C;
+  z-index: 1;
+  transform: translateY(-50%);
+  border-radius: 50px;
+  transition: width 0.3s ease;
+  width: 0%;
+  pointer-events: none;
+}
+.container form .progress.step-1::after {
+  width: 0%;
+}
+.container form .progress.step-2::after {
+  width: 33%;
+}
+.container form .progress.step-3::after {
+  width: 66%;
+}
+.container form .progress.step-4::after {
+  width: 100%;
+}
+.container form .progress .step {
+  position: relative;
+  text-align: center;
+  z-index: 2;
+}
+.container form .progress .step .circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #E5E7EB;
+  color: #111827;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin: auto;
+  transition: all 0.3s, border-color 0.3s;
+}
+.container form .progress .step .circle.active {
+  background: #FC6C4C;
+  color: #FFFFFF;
+}
+.container form .progress .step .circle.completed {
+  background: #FC6C4C;
+  color: #FFFFFF;
+}
+.container form .form-step {
+  display: none;
+}
+.container form .form-step.active {
+  border-top: 1px solid #E5E7EB;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  display: block !important;
+}
+.container form .form-step h2 {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 24px;
+  color: #111827;
+  margin-bottom: 10px;
+}
+.container form .form-step p {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #6B7280;
+}
+.container form .form-step .input-pair {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.6rem;
+}
+@media (max-width: 535px) {
+  .container form .form-step .input-pair {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+.container form .form-step .input-pair .input-group {
+  flex: 1;
+  color: #111827;
+}
+.container form .form-step .input-pair .input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+.container form .form-step .input-pair .input-group input {
+  font-family: "Poppins";
+  font-weight: 400;
+  max-width: 270px;
+  width: 100%;
+  border-radius: 10px;
+  padding: 0.7rem;
+  border: 1px solid #D1D5DB;
+  cursor: pointer;
+}
+.container form .form-step .input-pair .input-group input::-moz-placeholder {
+  color: #9CA3AF;
+}
+.container form .form-step .input-pair .input-group input::placeholder {
+  color: #9CA3AF;
+}
+.container form .form-step .input-pair .input-group input:focus, .container form .form-step .input-pair .input-group input:hover {
+  outline: none;
+  border: 1px solid #FC6C4C;
+  color: #111827;
+  background: none;
+}
+.container form .form-step .btn {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #E5E7EB;
+}
+.container form .form-step .btn :first-child.active {
+  justify-content: flex-end;
+}
+.container form .form-step .btn .next-btn,
+.container form .form-step .btn .prev-btn,
+.container form .form-step .btn .submit-btn {
+  cursor: pointer;
+  margin-top: 30px;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 10px;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  transition: all 0.3s ease;
+}
+.container form .form-step .btn .next-btn,
+.container form .form-step .btn .submit-btn {
+  background-color: #FC6C4C;
+  color: #FFFFFF;
+}
+.container form .form-step .btn .next-btn:hover,
+.container form .form-step .btn .submit-btn:hover {
+  background-color: #febeb0;
+  color: black;
+}
+.container form .form-step .btn .prev-btn {
+  border: 1px solid #FC6C4C;
+  color: #FC6C4C;
+  background: none;
+}
+.container form .form-step .btn .prev-btn:hover {
+  background-color: #FC6C4C;
+  color: #FFFFFF;
+}
+.container form .form-step .skill-pair {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+@media (max-width: 535px) {
+  .container form .form-step .skill-pair {
+    margin-bottom: 20px;
+    flex-direction: column;
+  }
+}
+.container form .form-step .skill-pair .skill-group {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 14px;
+  flex: 1;
+  border: 1px solid #D1D5DB;
+  max-width: 270px;
+  width: 100%;
+  border-radius: 10px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.container form .form-step .skill-pair .skill-group.selected, .container form .form-step .skill-pair .skill-group:hover {
+  outline: none;
+  border: 1px solid #FC6C4C;
+}
+.container form .form-step .skill-pair .skill-group a,
+.container form .form-step .skill-pair .skill-group a:visited {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  margin-left: 10px;
+  color: #111827;
+}
+.container form .form-step .skill-pair .skill-group a i,
+.container form .form-step .skill-pair .skill-group a:visited i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: 34px;
+  width: 34px;
+  background-color: #FC6C4C;
+  color: #FFFFFF;
+  border-radius: 50%;
+}
+.container form .form-step .challenge-pair {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(70px, auto);
+  margin-bottom: 40px;
+}
+@media (max-width: 535px) {
+  .container form .form-step .challenge-pair {
+    grid-template-columns: repeat(1, 1fr);
+    margin-bottom: 20px;
+  }
+}
+.container form .form-step .challenge-pair .challenge-group {
+  border: 1px solid #D1D5DB;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 14px;
+  width: 100%;
+  border-radius: 10px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  max-width: 270px;
+}
+.container form .form-step .challenge-pair .challenge-group.selected, .container form .form-step .challenge-pair .challenge-group:hover {
+  outline: none;
+  border: 1px solid #FC6C4C;
+}
+.container form .form-step .challenge-pair .challenge-group input {
+  accent-color: #FC6C4C;
+  height: 16px;
+  width: 16px;
+  vertical-align: middle;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.container form .form-step #summary {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(70px, auto);
+}
+@media (max-width: 780px) {
+  .container form .form-step #summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .container form .form-step #summary {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.container form .form-step #summary .info {
+  font-family: "Poppins";
+  font-weight: 500;
+  display: grid;
+  border-radius: 10px;
+  background-color: #E5E7EB;
+  color: #4B5563;
+  padding: 16px;
+  max-width: 177px;
+  width: 100%;
+  font-size: 12px;
+}
+.container form .form-step #summary .info strong {
+  color: #111827;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 5px;
+}
+.container .confirm {
+  text-align: center;
+  padding: 50px;
+}
+.container .confirm img {
+  width: 124.98px;
+  height: 124.99px;
+  margin-bottom: 20px;
+}
+.container .confirm h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.container .confirm p {
+  color: #6B7280;
+  font-size: 14px;
+  line-height: 25px;
+}/*# sourceMappingURL=style.css.map */
